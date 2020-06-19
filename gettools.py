@@ -79,7 +79,7 @@ def main():
         sys.exit(1)
 
     # Setup url and file paths
-    url = 'http://softwareupdate.vmware.com/cds/vmw-desktop/fusion/'
+    url = 'http://softwareupdate.vmware.com/cds/vmw-desktop/fusion/11.1.0/13668589/'
     dest = os.path.dirname(os.path.abspath(__file__))
 
     # Re-create the tools folder
@@ -88,21 +88,21 @@ def main():
 
     # Get the list of Fusion releases
     # And get the last item in the ul/li tags
-    response = urlopen(url)
-    html = response.read()
-    parser = CDSParser()
-    parser.feed(str(html))
-    url = url + parser.HTMLDATA[-1] + '/'
-    parser.clean()
+    #response = urlopen(url)
+     #html = response.read()
+     #parser = CDSParser()
+     #parser.feed(str(html))
+     #url = url + parser.HTMLDATA[-1] + '/'
+     #parser.clean()
 
     # Open the latest release page
     # And build file URL
-    response = urlopen(url)
-    html = response.read()
-    parser.feed(str(html))
-    urlpost15 = url + parser.HTMLDATA[-1] + '/packages/com.vmware.fusion.tools.darwin.zip.tar'
-    urlpre15 = url + parser.HTMLDATA[-1] + '/packages/com.vmware.fusion.tools.darwinPre15.zip.tar'
-    parser.clean()
+     #response = urlopen(url)
+     #html = response.read()
+     #parser.feed(str(html))
+    urlpost15 = url + '/packages/com.vmware.fusion.tools.darwin.zip.tar'
+    urlpre15 = url + '/packages/com.vmware.fusion.tools.darwinPre15.zip.tar'
+     #parser.clean()
 
     # Download the darwin.iso tgz file
     print('Retrieving Darwin tools from: ' + urlpost15)
